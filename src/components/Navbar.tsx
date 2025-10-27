@@ -1,14 +1,14 @@
 "use client"
 
-import { Moon, Sun } from "lucide-react"
+import { BriefcaseIcon, HomeIcon, InfoIcon, MailIcon, Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "@/src/provider/ThemeProvider"
 
 const NAV_ITEMS = [
-    { label: "Início", href: "#" },
-    { label: "Sobre", href: "#" },
-    { label: "Serviços", href: "#" },
-    { label: "Contato", href: "#" },
+    { label: "Início", href: "#", icon: <HomeIcon size={2} /> },
+    { label: "Sobre", href: "#", icon: <InfoIcon /> },
+    { label: "Serviços", href: "#", icon: <BriefcaseIcon /> },
+    { label: "Contato", href: "#", icon: <MailIcon /> },
 ]
 
 export function PillNavbar() {
@@ -23,9 +23,13 @@ export function PillNavbar() {
             <div className="bg-card/80 backdrop-blur-md border border-border rounded-full px-6 py-3 shadow-lg">
                 <div className="flex items-center gap-6">
                     {NAV_ITEMS.map((item, idx) => (
-                        <Button className="rounded-full px-4 py-4 cursor-pointer" variant="ghost" key={idx} >
-                            {item.label}
-                        </Button>
+                        <div key={idx} className="flex items-center justify-center">
+
+                            <Button className="rounded-full px-4 py-4 cursor-pointer" variant="ghost">
+                                {item.label}
+                                {item.icon}
+                            </Button>
+                        </div>
                     ))}
                     <div className="h-6 w-px bg-border" />
 
